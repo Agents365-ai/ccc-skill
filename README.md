@@ -5,9 +5,11 @@
 ## What it does
 
 - **Tool selection decision tree** — automatically recommends the best CCC tool based on data type, analysis goal, and language preference
-- **5 tools covered** — complete workflow templates for LIANA+, CellPhoneDB, CellChat, NicheNet, and COMMOT
+- **8 tools with full guides** — LIANA+, CellPhoneDB, CellChat, NicheNet, COMMOT, Squidpy, MEBOCOST, DIALOGUE
+- **12 additional tools referenced** — CellOracle, SCENIC+, stLearn, MultiNicheNet, Scriabin, FlowSig, cell2cell, SpaTalk, NICHES, CrossTalkeR, NeuronChat, scDiffCom
 - **Python + R** — code templates for both AnnData/scanpy and Seurat pipelines
 - **Spatial transcriptomics** — guidance for Visium, MERFISH, Xenium, and other spatial CCC analysis
+- **Beyond protein LR** — metabolite-mediated CCC (MEBOCOST) and multicellular programs (DIALOGUE)
 - **Multi-sample comparison** — tensor decomposition, MOFA+, CellChat merged, MultiNicheNet workflows
 - **Pitfall warnings** — common mistakes and parameter tuning advice per tool
 - Triggers automatically when user asks about cell-cell communication, ligand-receptor analysis, or signaling inference
@@ -28,6 +30,9 @@
 | **CellChat** | R | Pathway hierarchy, rich visualization, condition comparison | [guides/cellchat.md](guides/cellchat.md) |
 | **NicheNet** | R | Ligand→TF→target prediction, MultiNicheNet multi-sample | [guides/nichenet.md](guides/nichenet.md) |
 | **COMMOT** | Python | Optimal transport spatial CCC, signaling direction vector fields | [guides/commot.md](guides/commot.md) |
+| **Squidpy** | Python | scverse ecosystem LR analysis, OmniPath database, zero-friction | [guides/squidpy.md](guides/squidpy.md) |
+| **MEBOCOST** | Python | Metabolite-mediated CCC (non-protein signals) | [guides/mebocost.md](guides/mebocost.md) |
+| **DIALOGUE** | R | Multicellular programs (cross-cell-type coordination) | [guides/dialogue.md](guides/dialogue.md) |
 
 ## Comparison: With skill vs. Without
 
@@ -107,7 +112,10 @@ ccc-skill/
 │   ├── cellphonedb.md    # CellPhoneDB complete workflow guide
 │   ├── cellchat.md       # CellChat complete workflow guide
 │   ├── nichenet.md       # NicheNet complete workflow guide
-│   └── commot.md         # COMMOT complete workflow guide
+│   ├── commot.md         # COMMOT complete workflow guide
+│   ├── squidpy.md        # Squidpy CCC complete workflow guide
+│   ├── mebocost.md       # MEBOCOST metabolite CCC guide
+│   └── dialogue.md       # DIALOGUE multicellular programs guide
 ├── agents/
 │   └── openai.yaml       # Codex/OpenAI platform configuration
 ├── README.md             # English documentation (this file)

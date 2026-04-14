@@ -5,9 +5,11 @@
 ## 功能特性
 
 - **工具选型决策树** —— 根据数据类型、分析目标、语言偏好自动推荐最佳 CCC 工具
-- **5 大工具全覆盖** —— LIANA+、CellPhoneDB、CellChat、NicheNet、COMMOT 的完整工作流模板
+- **8 大工具完整指南** —— LIANA+、CellPhoneDB、CellChat、NicheNet、COMMOT、Squidpy、MEBOCOST、DIALOGUE
+- **12 个额外工具索引** —— CellOracle、SCENIC+、stLearn、MultiNicheNet、Scriabin、FlowSig、cell2cell、SpaTalk、NICHES、CrossTalkeR、NeuronChat、scDiffCom
 - **Python + R 双语** —— AnnData/scanpy 和 Seurat 管线均有代码模板
 - **空间转录组支持** —— Visium、MERFISH、Xenium 等空间 CCC 分析指导
+- **超越蛋白 LR** —— 代谢物介导 CCC（MEBOCOST）和多细胞协调程序（DIALOGUE）
 - **多样本比较** —— tensor 分解、MOFA+、CellChat merged、MultiNicheNet 工作流
 - **陷阱警告** —— 每个工具的常见错误和参数调优建议
 - 当用户提出细胞间通讯、配体-受体分析、信号通路推断等需求时自动触发
@@ -28,6 +30,9 @@
 | **CellChat** | R | 信号通路层级、丰富可视化、条件比较 | [guides/cellchat.md](guides/cellchat.md) |
 | **NicheNet** | R | 配体→TF→靶基因预测、MultiNicheNet 多样本 | [guides/nichenet.md](guides/nichenet.md) |
 | **COMMOT** | Python | 最优传输空间 CCC、信号方向向量场 | [guides/commot.md](guides/commot.md) |
+| **Squidpy** | Python | scverse 生态 LR 分析、OmniPath 数据库、零摩擦 | [guides/squidpy.md](guides/squidpy.md) |
+| **MEBOCOST** | Python | 代谢物介导 CCC（非蛋白信号） | [guides/mebocost.md](guides/mebocost.md) |
+| **DIALOGUE** | R | 多细胞协调程序（跨细胞型共调控） | [guides/dialogue.md](guides/dialogue.md) |
 
 ## 对比：有技能 vs 无技能
 
@@ -107,7 +112,10 @@ ccc-skill/
 │   ├── cellphonedb.md    # CellPhoneDB 完整工作流指南
 │   ├── cellchat.md       # CellChat 完整工作流指南
 │   ├── nichenet.md       # NicheNet 完整工作流指南
-│   └── commot.md         # COMMOT 完整工作流指南
+│   ├── commot.md         # COMMOT 完整工作流指南
+│   ├── squidpy.md        # Squidpy CCC 完整工作流指南
+│   ├── mebocost.md       # MEBOCOST 代谢物 CCC 指南
+│   └── dialogue.md       # DIALOGUE 多细胞程序指南
 ├── agents/
 │   └── openai.yaml       # Codex/OpenAI 平台配置
 ├── README.md             # English documentation
