@@ -4,7 +4,7 @@ description: Domain expertise for cell-cell communication (CCC) analysis. Intent
 license: MIT
 homepage: https://github.com/Agents365-ai/ccc-skill
 platforms: [macos, linux, windows]
-metadata: {"openclaw":{"requires":{"bins":["python3"]},"emoji":"🔗"},"author":"Agents365-ai","version":"0.1.0"}
+metadata: {"author":"Agents365-ai","version":"0.1.0"}
 ---
 
 # Cell-Cell Communication Analysis Skill

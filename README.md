@@ -1,69 +1,68 @@
-# ccc-skill — 细胞间通讯分析技能 🔗
+# ccc-skill — Cell-Cell Communication Analysis Skill 🔗
 
-[English](README_EN.md)
+[中文文档](README_CN.md)
 
-## 功能特性
+## What it does
 
-- **工具选型决策树** —— 根据数据类型、分析目标、语言偏好自动推荐最佳 CCC 工具
-- **5 大工具全覆盖** —— LIANA+、CellPhoneDB、CellChat、NicheNet、COMMOT 的完整工作流模板
-- **Python + R 双语** —— AnnData/scanpy 和 Seurat 管线均有代码模板
-- **空间转录组支持** —— Visium、MERFISH、Xenium 等空间 CCC 分析指导
-- **多样本比较** —— tensor 分解、MOFA+、CellChat merged、MultiNicheNet 工作流
-- **陷阱警告** —— 每个工具的常见错误和参数调优建议
-- 当用户提出细胞间通讯、配体-受体分析、信号通路推断等需求时自动触发
+- **Tool selection decision tree** — automatically recommends the best CCC tool based on data type, analysis goal, and language preference
+- **5 tools covered** — complete workflow templates for LIANA+, CellPhoneDB, CellChat, NicheNet, and COMMOT
+- **Python + R** — code templates for both AnnData/scanpy and Seurat pipelines
+- **Spatial transcriptomics** — guidance for Visium, MERFISH, Xenium, and other spatial CCC analysis
+- **Multi-sample comparison** — tensor decomposition, MOFA+, CellChat merged, MultiNicheNet workflows
+- **Pitfall warnings** — common mistakes and parameter tuning advice per tool
+- Triggers automatically when user asks about cell-cell communication, ligand-receptor analysis, or signaling inference
 
-## 多平台支持
+## Multi-Platform Support
 
-| 平台 | 状态 | 说明 |
-|------|------|------|
-| **Claude Code** | ✅ 完全支持 | 原生 SKILL.md 加载 |
-| **Codex** | ✅ 完全支持 | `agents/openai.yaml` 配置 |
-| **OpenClaw** | ✅ 完全支持 | `metadata.openclaw` 命名空间 |
+| Platform | Status | Details |
+|----------|--------|---------|
+| **Claude Code** | ✅ Full support | Native SKILL.md loading |
+| **Codex** | ✅ Full support | `agents/openai.yaml` configuration |
 
-## 覆盖工具
+## Tools Covered
 
-| 工具 | 语言 | 核心场景 | 指南 |
-|------|------|---------|------|
-| **LIANA+** | Python | 多方法聚合、空间双变量、MISTy、tensor/MOFA+ | [guides/liana.md](guides/liana.md) |
-| **CellPhoneDB** | Python | 高可信度人工策展 LR 数据库、置换检验 | [guides/cellphonedb.md](guides/cellphonedb.md) |
-| **CellChat** | R | 信号通路层级、丰富可视化、条件比较 | [guides/cellchat.md](guides/cellchat.md) |
-| **NicheNet** | R | 配体→TF→靶基因预测、MultiNicheNet 多样本 | [guides/nichenet.md](guides/nichenet.md) |
-| **COMMOT** | Python | 最优传输空间 CCC、信号方向向量场 | [guides/commot.md](guides/commot.md) |
+| Tool | Language | Core Use Case | Guide |
+|------|----------|---------------|-------|
+| **LIANA+** | Python | Multi-method aggregation, spatial bivariate, MISTy, tensor/MOFA+ | [guides/liana.md](guides/liana.md) |
+| **CellPhoneDB** | Python | Curated LR database, permutation testing, v5 scoring | [guides/cellphonedb.md](guides/cellphonedb.md) |
+| **CellChat** | R | Pathway hierarchy, rich visualization, condition comparison | [guides/cellchat.md](guides/cellchat.md) |
+| **NicheNet** | R | Ligand→TF→target prediction, MultiNicheNet multi-sample | [guides/nichenet.md](guides/nichenet.md) |
+| **COMMOT** | Python | Optimal transport spatial CCC, signaling direction vector fields | [guides/commot.md](guides/commot.md) |
 
-## 对比：有技能 vs 无技能
+## Comparison: With skill vs. Without
 
-| 能力 | 原生 Agent | 本技能 |
-|------|-----------|--------|
-| 知道哪个工具适合哪种数据/目标 | 大致了解 | ✅ 精确决策树 |
-| 正确的 API 调用和参数 | 经常出错 | ✅ 验证过的代码模板 |
-| 知道常见陷阱（z-scale、counts_data 默认值等） | ❌ | ✅ 每个工具 5-10 条警告 |
-| 多工具组合工作流 | ❌ | ✅ 完整管线模板 |
-| 空间 CCC 参数调优（dis_thr、bandwidth 等） | ❌ | ✅ 按技术平台推荐 |
+| Capability | Native Agent | This Skill |
+|-----------|-------------|------------|
+| Knows which tool fits which data/goal | Roughly | ✅ Precise decision tree |
+| Correct API calls and parameters | Often wrong | ✅ Verified code templates |
+| Knows common pitfalls (z-scale, counts_data default, etc.) | ❌ | ✅ 5-10 warnings per tool |
+| Multi-tool combo workflows | ❌ | ✅ Complete pipeline templates |
+| Spatial CCC parameter tuning (dis_thr, bandwidth, etc.) | ❌ | ✅ Per-technology recommendations |
 
-## 前置条件
+## Prerequisites
 
-Python 工具：
+Python tools:
 ```bash
 pip install liana cellphonedb commot scanpy
 ```
 
-R 工具：
+R tools:
 ```r
 devtools::install_github("jinworks/CellChat")
 devtools::install_github("saeyslab/nichenetr")
-# 多样本:
+# Multi-sample:
 devtools::install_github("saeyslab/multinichenetr")
 ```
 
-## 技能安装
+## Skill Installation
 
 ### Claude Code
 
 ```bash
-# 全局安装
+# Global (available in all projects)
 git clone https://github.com/Agents365-ai/ccc-skill.git ~/.claude/skills/ccc-skill
 
-# 项目级安装
+# Project-level
 git clone https://github.com/Agents365-ai/ccc-skill.git .claude/skills/ccc-skill
 ```
 
@@ -73,100 +72,90 @@ git clone https://github.com/Agents365-ai/ccc-skill.git .claude/skills/ccc-skill
 git clone https://github.com/Agents365-ai/ccc-skill.git ~/.codex/skills/ccc-skill
 ```
 
-### OpenClaw
+### Installation paths summary
 
-```bash
-git clone https://github.com/Agents365-ai/ccc-skill.git ~/.openclaw/skills/ccc-skill
-
-# 项目级
-git clone https://github.com/Agents365-ai/ccc-skill.git skills/ccc-skill
-```
-
-### 安装路径汇总
-
-| 平台 | 全局路径 | 项目路径 |
-|------|---------|---------|
+| Platform | Global path | Project path |
+|----------|-------------|--------------|
 | Claude Code | `~/.claude/skills/ccc-skill/` | `.claude/skills/ccc-skill/` |
 | Codex | `~/.codex/skills/ccc-skill/` | N/A |
-| OpenClaw | `~/.openclaw/skills/ccc-skill/` | `skills/ccc-skill/` |
 
-## 使用方式
+## Usage
 
-直接用自然语言描述你的 CCC 分析需求即可：
+Just describe your CCC analysis needs in natural language:
 
 ```
-> 我有 Visium 空间转录组数据，想分析细胞间通讯，推荐用什么工具？
+> I have Visium spatial transcriptomics data and want to analyze cell-cell communication. What tool should I use?
 
-> 帮我写 LIANA+ rank_aggregate 的代码，数据是 scRNA-seq h5ad 格式
+> Write LIANA+ rank_aggregate code for my scRNA-seq h5ad data
 
-> CellChat 怎么比较两个条件之间的通讯差异？
+> How do I compare communication differences between two conditions in CellChat?
 
-> 我想预测哪些配体导致了受体细胞的转录变化，该用什么方法？
+> I want to predict which ligands caused transcriptional changes in receiver cells. What method should I use?
 
-> COMMOT 的 dis_thr 参数怎么设置？我的数据是 MERFISH
+> How should I set COMMOT's dis_thr for MERFISH data?
 ```
 
-技能会根据决策树选择合适的工具，参考对应的 guide 生成正确代码。
+The skill picks the right tool from the decision tree and generates correct code from the corresponding guide.
 
-## 文件结构
+## File Structure
 
 ```
 ccc-skill/
-├── SKILL.md              # 技能主文件 — 决策树 + 工具对比 + 通用原则
+├── SKILL.md              # Main skill file — decision tree + tool comparison + universal principles
 ├── guides/
-│   ├── liana.md          # LIANA+ 完整工作流指南
-│   ├── cellphonedb.md    # CellPhoneDB 完整工作流指南
-│   ├── cellchat.md       # CellChat 完整工作流指南
-│   ├── nichenet.md       # NicheNet 完整工作流指南
-│   └── commot.md         # COMMOT 完整工作流指南
+│   ├── liana.md          # LIANA+ complete workflow guide
+│   ├── cellphonedb.md    # CellPhoneDB complete workflow guide
+│   ├── cellchat.md       # CellChat complete workflow guide
+│   ├── nichenet.md       # NicheNet complete workflow guide
+│   └── commot.md         # COMMOT complete workflow guide
 ├── agents/
-│   └── openai.yaml       # Codex/OpenAI 平台配置
-├── README.md             # 中文文档（本文件）
-└── README_EN.md          # English documentation
+│   └── openai.yaml       # Codex/OpenAI platform configuration
+├── README.md             # English documentation (this file)
+└── README_CN.md          # Chinese documentation
 ```
 
-- `SKILL.md` —— **核心文件**，所有平台以此为技能指令
-- `guides/*.md` —— 各工具的详细代码模板和参数说明，SKILL.md 按需引用
+- `SKILL.md` — **core file**, loaded by all platforms as skill instructions
+- `guides/*.md` — detailed code templates and parameter reference per tool, referenced by SKILL.md on demand
 
-## 常见问题
+## FAQ
 
-### LLM 已经知道这些工具了，为什么还需要 skill？
+### LLMs already know about these tools. Why do I need a skill?
 
-LLM 对这些工具有大致了解，但在以下方面经常出错：
+LLMs have general awareness of these tools but frequently get details wrong:
 
-1. **参数默认值** —— 如 CellPhoneDB 的 `counts_data` 默认是 `'ensembl'` 而非 symbol，LIANA+ 的 `use_raw=True` 会读 `adata.raw`
-2. **工具选型** —— 不同数据类型/分析目标该用哪个工具，LLM 的推荐常不精确
-3. **空间参数** —— `dis_thr`、`bandwidth`、`contact.range` 等需要根据技术平台调整
-4. **API 变更** —— CellChat v2 vs v1、Seurat v5 vs v4 的 API 差异
-5. **隐性陷阱** —— z-scale 破坏零值、数值型细胞名、missing `subsetData()` 等
+1. **Parameter defaults** — e.g., CellPhoneDB's `counts_data` defaults to `'ensembl'` not symbol; LIANA+'s `use_raw=True` reads from `adata.raw`
+2. **Tool selection** — which tool for which data type/goal is often imprecise without guidance
+3. **Spatial parameters** — `dis_thr`, `bandwidth`, `contact.range` must be tuned per technology platform
+4. **API changes** — CellChat v2 vs v1, Seurat v5 vs v4 API differences
+5. **Hidden pitfalls** — z-scaling destroys zeros, numeric cell type names, missing `subsetData()`, etc.
 
-Skill 将验证过的代码模板和陷阱警告前置注入到 agent 的上下文中，避免试错循环。
+The skill injects verified code templates and pitfall warnings into the agent's context, avoiding trial-and-error cycles.
 
-## 已知限制
+## Known Limitations
 
-- 代码模板基于各工具 2025-2026 年版本，API 可能随版本更新变化
-- R 工具的代码模板使用 Seurat 管线；SCE 用户需自行适配
-- 不包含所有参数的完整 API 文档，聚焦于常用工作流和关键参数
+- Code templates are based on 2025-2026 tool versions; APIs may change with updates
+- R code templates use the Seurat pipeline; SCE users may need adaptation
+- Does not include full API documentation for every parameter — focuses on common workflows and critical parameters
 
 ## License
 
 MIT
 
-## 支持
+## Support
 
-如果这个技能对你有帮助，欢迎打赏支持作者：
+If this skill helps you, consider supporting the author:
 
 <table>
   <tr>
     <td align="center">
-      <img src="https://raw.githubusercontent.com/Agents365-ai/images_payment/main/qrcode/wechat-pay.png" width="180" alt="微信支付">
+      <img src="https://raw.githubusercontent.com/Agents365-ai/images_payment/main/qrcode/wechat-pay.png" width="180" alt="WeChat Pay">
       <br>
-      <b>微信支付</b>
+      <b>WeChat Pay</b>
     </td>
     <td align="center">
-      <img src="https://raw.githubusercontent.com/Agents365-ai/images_payment/main/qrcode/alipay.png" width="180" alt="支付宝">
+      <img src="https://raw.githubusercontent.com/Agents365-ai/images_payment/main/qrcode/alipay.png" width="180" alt="Alipay">
       <br>
-      <b>支付宝</b>
+      <b>Alipay</b>
     </td>
     <td align="center">
       <img src="https://raw.githubusercontent.com/Agents365-ai/images_payment/main/qrcode/buymeacoffee.png" width="180" alt="Buy Me a Coffee">
@@ -176,7 +165,7 @@ MIT
   </tr>
 </table>
 
-## 作者
+## Author
 
 **Agents365-ai**
 
