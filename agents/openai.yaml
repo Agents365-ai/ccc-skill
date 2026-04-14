@@ -1,0 +1,22 @@
+interface:
+  display_name: "CCC — Cell-Cell Communication Analysis"
+  short_description: "Tool selection, workflow design, and code generation for cell-cell communication inference using LIANA+, CellPhoneDB, CellChat, NicheNet, and COMMOT"
+  brand_color: "#2E86AB"
+
+policy:
+  allow_implicit_invocation: true
+
+capabilities:
+  - Decision tree for CCC tool selection based on data type, analysis goal, and language preference
+  - LIANA+ workflows — rank_aggregate, bivariate spatial, MISTy, tensor decomposition, MOFA+
+  - CellPhoneDB workflows — statistical, DEG-based, and basic mean analysis with v5 scoring
+  - CellChat workflows — single-dataset, multi-condition comparison, spatial (v2/v3)
+  - NicheNet workflows — ligand activity prediction, target gene inference, MultiNicheNet multi-sample
+  - COMMOT workflows — optimal transport spatial CCC, signaling direction vector fields
+  - Code templates for both Python (AnnData/scanpy) and R (Seurat) pipelines
+  - Universal CCC best practices — preprocessing, database selection, result interpretation
+  - Tool-specific pitfall warnings and parameter tuning guidance
+
+prerequisites:
+  - Python 3.8+ with scanpy, liana, cellphonedb, and/or commot for Python-based tools
+  - R 4.0+ with Seurat, CellChat, and/or nichenetr for R-based tools
